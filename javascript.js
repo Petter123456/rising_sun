@@ -10,7 +10,12 @@ function getWeatherData() {
 
   console.dir(data); // Check your dev tools in the browser and you can see the object.
   const sunrise = data.sys.sunrise //entering the sys key and the the sunrise key
-  const sunset = data.sys.sunset
+  const sunset = data.sys.sunset //entering the sys key and the the sunset key
+  const currentTime = new Date().getTime()/1000 //current time
+  const secondsSinceSunrise = currentTime - sunrise; //seconds since sunrise
+  const sunAtNoon = sunrise + (sunset - sunrise) / 2; // sun AtNoon
+  console.log(sunAtNoon)
+
 }
 
 const connection_open_weather_map = new XMLHttpRequest(); // make XML request
